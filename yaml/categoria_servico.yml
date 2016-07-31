@@ -1,0 +1,12 @@
+cortes:
+ id:100
+ nome:cortes
+quimica:
+ id:101
+ nome:química
+manicure:
+ id:102
+ nome:manicure
+esteticista:
+ id:103
+ nome:esteticista

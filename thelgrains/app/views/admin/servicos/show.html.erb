@@ -1,0 +1,15 @@
+<h1>Serviço</h1>
+<table>
+  <%# TODO, fazer os forms de forma decente %>
+  <% @servico.attributes.each do |at| %>
+    <% next if at[0].include? '_id' %>
+    <% break if at[0] == 'created_at' %>
+    <tr>
+      <td><%= at[0].titlecase %></td>
+      <td><%= at[1] %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Editar', edit_admin_servico_path(@servico) %> |
+<%= link_to 'Voltar', admin_servicos_path %>

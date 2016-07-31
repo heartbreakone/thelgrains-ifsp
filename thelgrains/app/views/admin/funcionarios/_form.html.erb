@@ -1,0 +1,148 @@
+<% if true %>
+  <div class="formulario">
+  <% content_for :script do %>
+    <%= javascript_include_tag 'admin/funcionarios/cep_api' %>
+    <script type="text/javascript" src="/js/modernizr.custom.js"></script>
+    <script type="text/javascript" src="/js/modernizr.custom.39460.js"></script>
+    <script type="text/javascript" src="/js/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+  <% end %>
+
+  <% sexo_select_options = [['Selecione', nil],['Masculino', 'm'],['Feminino', 'f']]
+
+  estados = JSON.parse Net::HTTP.get(URI('https://api.brasil.io/'))
+
+  estados_select_options = estados[:unidades_federativas].to_a
+
+  %>
+
+  <%= form_for [:admin, @funcionario] do |f| %>
+
+    <%= f.label :nome, '* Nome' %>
+    <%= f.text_field :nome, class: 'p', maxlength: '65' %>
+
+    <% if f.object.new_record? %>
+      <%= fields_for :user do |u| %>
+        <%= u.label :cpf, '* CPF' %>
+        <%= u.text_field :cpf, maxlength: '14', class: 'p', onblur: "javascript: validarCPF(this.value);", onkeypress: "javascript: mascara(this, cpf_mask);" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :email, '* E-Mail' %>
+    <%= f.text_field :email, class: 'p' %>
+
+    <%= f.label :telefone, 'Telefone' %>
+    <%= f.text_field :telefone, class: 'p valid', id: 'telefone', 'aria-invalid' => 'false' %>
+
+    <%= f.label :celular, 'Celular' %>
+    <%= f.text_field :celular, class: 'p', id: 'celular' %>
+
+    <%= f.label :nascimento, 'Data de Nascimento' %>
+    <%= date_select :funcionario, :nascimento, start_year: 100.years.ago.year, end_year: Date.today.year, class: 'p' %>
+
+    <%= f.label :sexo, 'Sexo' %>
+    <%= f.select :sexo, options_for_select(sexo_select_options), class: 'p', id: 'sexo' %>
+
+    <%= f.label :cep, '* CEP' %>
+    <%= f.text_field :cep, class: 'p', onblur: "consultacep(this.value)", maxlength: "9", id: 'cep' %>
+
+    <%= f.fields_for :endereco do |e| %>
+      <%= e.label :logradouro %>
+      <%= e.text_field :logradouro, class: 'p', id: 'logradouro' %>
+
+      <%= e.label :numero, 'Número' %>
+      <%= e.text_field :numero, class: 'p', maxlength: '9', id: 'numero' %>
+
+      <%= e.label :complemento %>
+      <%= e.text_field :complemento, class: 'p', id: 'complemento' %>
+
+      <%= e.label :bairro %>
+      <%= e.text_field :bairro, class: 'p', id: 'bairro' %>
+
+      <%= e.label :cidade %>
+      <%= e.text_field :cidade, class: 'p', id: 'localidade' %>
+
+      <%= e.label :estado %>
+      <%= e.select :estado, options_for_select(estados_select_options), class: 'p' %>
+    <% end %>
+
+    <%= fields_for :user do |u| %>
+      <%= u.label '* Senha' %>
+      <%= u.password_field :password, class: 'p' %>
+
+      <%= u.label '* Confirmação da Senha' %>
+      <%= u.password_field :password_confirmation, class: 'p' %>
+
+      <%= u.label :admin, 'Administrador' %>
+      <%= u.select :admin, options_for_select([['Não', false], ['Sim', true]]), class: 'p' %>
+    <% end %>
+    <h5>* Campos Obrigatórios<h5>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
+<% else %>
+  <section>
+   <div class="formulario">
+      <%= form_for [:admin, @funcionario],  html: { id: 'validate', class: '' } do |f| %>
+
+          <label>* Nome</label>
+          <input name="nome" type="text" value="" class="p" maxlength="65">
+
+          <label> CPF </label>
+          <input type="text" onblur="javascript: validarCPF(this.value);" onkeypress="javascript: mascara(this, cpf_mask);"  maxlength="14" name="cpf"  class="p"/>
+
+          <label>* E-mail</label>
+          <input name="email" type="text" class="p">
+
+          <label>Telefone</label>
+          <input name="" type="text" class="p" id="telefone">
+
+          <label>Celular</label>
+          <input name="" type="text" class="p" id="celular">
+
+          <label>* Data de Nascimento</label>
+          <input  type="text" class="p" id="data" name="datanasc" onblur="fctValidaData(this);" >
+
+          <label>Data</label>
+          <input name="" type="text" class="p" id="datepicker1">
+
+          <label>Sexo</label>
+          <select name="" class="p">
+            <option>Selecione</option>
+            <option>Masculino</option>
+            <option>Feminino</option>
+          </select>
+
+          <label>* CEP</label>
+          <input class"p" id="cep" onblur="consultacep(this.value)" maxlength="9" name="cep"/>
+
+          <label>Logradouro</label>
+          <input id="logradouro" class="p"/>
+
+          <label>Bairro</label>
+          <input id="bairro" class="p"/>
+
+          <label>Cidade</label>
+          <input id="localidade" class="p"/>
+
+          <label>UF</label>
+          <input id="uf" maxlength="2" class="p"/>
+
+          <label>* Número</label>
+          <input name="numero" maxlength="9" class"p"/>
+
+          <label>Complemento</label>
+          <input name="complemento" type="text" class="p">
+
+          <h5>* Campos Obrigatórios<h5>
+
+          <input type="submit" name="commit" value="Enviar">
+
+          <label><br><br><br><br><br><br></label>
+      <% end %>
+  	</div><!--/formulario-->
+  </section>
+  </body>
+  </html>
+<% end %>

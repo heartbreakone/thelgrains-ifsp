@@ -1,0 +1,36 @@
+
+corte:
+  user: user1
+  cliente: cliente3
+  title: corte
+  description: corte de cabelo
+  start_time: 2015-08-024T04:05:06+07:00
+  end_time: 2015-08-024T05:06:07+07:00
+  all_day: false
+
+tintura:
+  user: user2
+  cliente: cliente1
+  title: tintura
+  description: tintura
+  start_time: 2015-08-025T04:05:06+07:00
+  end_time: 2015-08-025T05:06:07+07:00
+  all_day: false
+
+relaxamento:
+  user: user3
+  cliente: cliente1
+  title: corte
+  description: relaxamento
+  start_time: 2015-08-026T04:05:06+07:00
+  end_time: 2015-08-026T05:06:07+07:00
+  all_day: false
+
+escova:
+  user: user4
+  cliente: cliente2
+  title: escova
+  description: escova
+  start_time: 2015-08-027T04:05:06+07:00
+  end_time: 2015-08-027T05:06:07+07:00
+  all_day: false

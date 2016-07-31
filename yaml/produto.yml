@@ -1,0 +1,18 @@
+cremenacional:
+ id:100
+ nome:creme nacional
+ valor:30
+cremeimportado:
+ id:101
+ nome:creme importado
+ valor:60
+shamponacional:
+ id:102
+ nome:shampo nacional
+ valor:30
+shampoimportado:
+ id:103
+ nome:shampo importado
+ valor:60
+
+ 

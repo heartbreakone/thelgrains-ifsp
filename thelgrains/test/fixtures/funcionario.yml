@@ -1,0 +1,35 @@
+fun1:
+  user: user1
+  nome: Joana Rodrigues
+  nascimento: 1985-06-04
+  sexo: F
+  telefone: 47858961
+  celular: 948754635
+  cep: 06754342
+
+fun2:
+  user: user2
+  nome: Maria Fonseca
+  nascimento: 1991-07-05
+  sexo: F
+  telefone: 47858961
+  celular: 948754635
+  cep: 06754342
+
+fun3:
+  user: user3
+  nome: Pedro de Oliveira
+  nascimento: 1989-02-03
+  sexo: M
+  telefone: 47858961
+  celular: 948754635
+  cep: 06754342
+
+fun4:
+  user: user4
+  nome: Paula Maia
+  nascimento: 1998-06-01
+  sexo: F
+  telefone: 47858961
+  celular: 948754635
+  cep: 06754342

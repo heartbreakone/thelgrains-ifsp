@@ -1,0 +1,315 @@
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/mainzao.css" />
+
+<link rel="stylesheet" type="text/css" href="css/jquery.cslider.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
+<link rel="stylesheet" type="text/css" href="css/animate.css" />
+<!-- Ícones da página -->
+<link rel="eva-icone-precomposed" sizes="144x144" href="images/ico/eva-icone-144.png">
+<link rel="eva-icone-precomposed" sizes="114x114" href="images/ico/eva-icone-114.png">
+<link rel="eva-icone-precomposed" sizes="72x72" href="images/eva-icone-72.png">
+<link rel="eva-icone-precomposed" href="images/ico/eva-icone-57.png">
+<link rel="shortcut icon" href="/images/ico/favicon.ico">
+
+
+<!-- "Import nos JS ... -->
+<script src="js/jquery.js"></script>
+<script type="text/javascript" src="js/cpfvall.js"></script>
+<script type="text/javascript" src="js/jquery.mixitup.js"></script>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
+<script type="text/javascript" src="js/modernizr.custom.js"></script>
+<script type="text/javascript" src="js/jquery.bxslider.js"></script>
+<script type="text/javascript" src="js/jquery.cslider.js"></script>
+<script type="text/javascript" src="js/jquery.placeholder.js"></script>
+<script type="text/javascript" src="js/jquery.inview.js"></script>
+
+<script src="js/jquery-latest.min.js" type="text/javascript"></script>
+<script src="js/script.js"></script>
+        
+        
+            <script type="text/javascript" src="js/cepvall.js"></script>
+
+
+
+<link rel="stylesheet" type="text/css" href="css/demo.css" />
+        
+		<script type="text/javascript" src="js/modernizr.custom.39460.js"></script> 
+
+
+<div id='cssmenu'>
+<ul>
+   <li><a href='#' class="brand"><span><img src="images/logo2.png" width="200" height="28" alt="Logo" /></span></a></li>
+   <li class='active has-sub'><a href='#'><span>Agendamentos</span></a>
+      <ul>
+         <li><a href='#'><span>Subdivisão1</span></a>
+            
+         </li>
+         <li><a href='#'><span>Subdivisão2</span></a>
+        </li>
+      </ul>
+          </li>
+          
+          
+          
+           <li class='active has-sub'><a href='#'><span>Atendimentos</span></a>
+      <ul>
+         <li><a href='#'><span>Subdivisão1</span></a>
+            
+         </li>
+         <li><a href='#'><span>Subdivisão2</span></a>
+        </li>
+      </ul>
+          </li>
+   
+   
+   
+    <li class='active has-sub'><a href='#'><span>Clientes</span></a>
+      <ul>
+         <li><a href='#'><span>Subdivisão1</span></a>
+            
+         </li>
+         <li><a href='#'><span>Subdivisão2</span></a>
+        </li>
+      </ul>
+          </li>
+   
+   
+    <li class='active has-sub'><a href='#'><span>Funcionários</span></a>
+      <ul>
+         <li><a href='#'><span>Subdivisão1</span></a>
+            
+         </li>
+         <li><a href='#'><span>Subdivisão2</span></a>
+        </li>
+      </ul>
+          </li>
+   
+   
+   
+    <li class='active has-sub'><a href='#'><span>Serviços</span></a>
+      <ul>
+         <li><a href='#'><span>Subdivisão1</span></a>
+            
+         </li>
+         <li><a href='#'><span>Subdivisão2</span></a>
+        </li>
+      </ul>
+          </li>
+   
+   
+  
+</ul>
+</div>
+   </head>
+      <img src="images/RoxoBack.png" class="bg">
+<body id="backss">
+    <h1><br><br></h1>
+    <section>
+      <div class="formulario">
+       <form action="" method="post" id="validate">
+    <table class="forms">
+     <thead>
+    <tr>
+      <th></th>
+      <thead>
+    <tr>
+      <th>Dados Pessoais</th>
+             
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+      </td>
+      <td>
+        <table class="forms">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>CPF</th>
+     
+    </tr>
+  </thead>
+      <tbody>
+      
+        <tr>
+          <td data-label="Nome">
+                <input required name="nome" type="text" value="" class="p" maxlength="65" placeholder="Digite seu nome"></td>
+          <td data-label="CPF">
+    <input required type="text" onBlur="javascript: validarCPF(this.value);" onKeyPress="javascript: mascara(this, cpf_mask);"  maxlength="14" name="cpf"  class="p" placeholder="Digite seu CPF"/></td>
+     </tr>
+        <thead>
+    <tr>
+      <th>Data de Nascimento</th>
+      <th>Sexo</th>
+      
+      
+    </tr>
+  </thead>
+        <tr>
+          <td data-label="Data de nascimento">
+           <input pattern=".{10,}" required type="text" class="p" id="data" name="datanasc" onBlur="fctValidaData(this);" placeholder="(dd/mm/aaaa)">
+           </td>
+          <td data-label="Sexo"><select required name="" class="p">
+                  <option>Selecione</option>
+                  <option>Masculino</option>
+                  <option>Feminino</option>
+                </select></td>
+          
+       
+          
+        </tr>
+        </tbody>
+        </table>
+        <br><br>
+       
+        <table class="forms">
+        <thead>
+    <tr>
+      <th>Dados da Residência</th>
+             
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+      </td>
+      <td>
+        <table class="forms">
+  <thead>
+    <tr>
+      <th>CEP</th>
+      <th>Logradouro</th>
+      
+    </tr>
+  </thead>
+      <tbody>
+      
+        <tr>
+          <td data-label="CEP">
+        <input type="text" class"p" id="cep" onBlur="consultacep(this.value)" maxlength="9" name="cep" required placeholder="Digite seu CEP"/></td>
+          <td data-label="Logradouro">
+
+        <input id="logradouro" class="pp"/></td>
+          
+          
+           </tr>
+        <thead>
+    <tr>
+      <th>Bairro</th>
+      <th>Cidade</th>
+      
+      
+    </tr>
+  </thead>
+        <tr>
+          
+          <td data-label="Bairro">
+
+        <input id="bairro" class="pp"/></td>
+          <td data-label="Localidade"> 
+
+        <input id="localidade" class="pp"/></td>
+           
+        
+        
+        </tr>
+        <thead>
+    <tr>
+      <th>Unidade Federativa</th>
+      <th>Número</th>
+      
+      
+    </tr>
+  </thead>
+        <tr>
+        <td data-label="uf"> 
+
+        <input id="uf" maxlength="2" class="p"/></td>
+         <td data-label="numero">
+
+        <input required type="text" name="numero" maxlength="9" class"p" placeholder="Número da Residência"/></td> 
+        
+         </tr>
+        <thead>
+    <tr>
+      <th>Complemento</th>
+      <th>Identificação da Residência</th>
+      
+      
+    </tr>
+  </thead>
+        <tr>
+          <td data-label="Linkoso">
+                <input name="complemento" type="text" class="p"> </td>
+               
+                <td data-label="Identificação"><select required name="identificacao" class="p">
+                  <option>Casa</option>
+                  <option>Apartamento</option>
+                  <option>Comercial</option>
+                  <option>Outro</option>
+                </select></td> 
+                
+                
+        </tr>
+        
+      </tbody>
+      
+    </table>
+    <br><br>
+    <table class="forms">
+        <thead>
+    <tr>
+      <th>Dados para Contato</th>
+             
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+      </td>
+      <td>
+        <table class="forms">
+  <thead>
+    <tr>
+      <th>E-mail</th>
+      <th>Telefone</th>
+      <th>Celular</th>
+      
+    </tr>
+  </thead>
+      <tbody>
+      
+        <tr>
+        <td data-label="E-mail">
+                <input reuired name="email" type="text" class="p" placeholder="Digite seu e-mail" required></td>
+               
+                 <td data-label="Telefone"><input name="telefone" type="text" class="p" id="telefone" placeholder="Digite seu telefone"></td>
+                 
+                
+          <td data-label="Celular"><input name="" type="text" class="p" id="celular" placeholder="Digite seu celular"></td>
+                
+        </tr>
+        
+      </tbody>
+      
+    </table>
+    <input type="submit" value="Enviar">
+    </form>
+      </div>
+      </section>
+    
+    
+    
+        <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+   
+</body>
+</html>

@@ -1,0 +1,38 @@
+atendimento1:
+  servico: corte
+  user: user3
+  cliente: cliente1
+  gasto_add: 23.5
+  state: nao_pago
+
+atendimento2:
+  servico: tintura
+  user: user2
+  cliente: cliente2
+  gasto_add: 0
+  state: nao_pago
+
+atendimento3:
+  servico: relaxamento
+  user: user1
+  cliente: cliente3
+  gasto_add: 10
+  state: nao_pago
+
+atendimento4:
+  servico: escova
+  user: user4
+  gasto_add: 0
+  state: aberto
+
+atendimento5:
+  servico: tintura
+  user: user4
+  gasto_add: 0
+  state: aberto
+
+atendimento6:
+  servico: relaxamento
+  user: user4
+  gasto_add: 0
+  state: aberto

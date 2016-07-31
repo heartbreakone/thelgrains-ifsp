@@ -1,0 +1,22 @@
+<h1>Funcionário</h1>
+<table>
+  <%# TODO, fazer os forms de forma decente %>
+  <% @funcionario.attributes.each do |at| %>
+    <% next if at[0].include? '_id' %>
+    <% break if at[0] == 'created_at' %>
+    <tr>
+      <td><%= at[0].titlecase %></td>
+      <td><%= at[1] %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td>Nº de Atendimentos</td>
+    <td><%= Atendimento.where(user: @funcionario.user).count %></td>
+  </tr>
+  <tr>
+    <td>Nº de Agendamentos</td>
+    <td><%= Agendamento.where(user: @funcionario.user).count %></td>
+  </tr>
+</table>
+<%= link_to 'Editar', edit_admin_funcionario_path(@funcionario) %> |
+<%= link_to 'Voltar', admin_funcionarios_path %>

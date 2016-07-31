@@ -1,0 +1,17 @@
+<%= form_for [:admin, @web_comentario] do |f| %>
+  <% if @web_comentario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@web_comentario.errors.count, "error") %> prohibited this admin_web_comentario from being saved:</h2>
+
+      <ul>
+      <% @web_comentario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

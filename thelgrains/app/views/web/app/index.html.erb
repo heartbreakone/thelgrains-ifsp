@@ -1,0 +1,21 @@
+<script>
+  var Chartkick = {"language": "pt-BR"};
+</script>
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<h1>Bem vindo</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Agendamentos de Hoje</th>
+      <th>Atendimentos de Hoje</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="width: 50%;">
+        <%= column_chart Agendamento.all.group_by_hour_of_day(:start_time, format: "%l %P").count %>
+      </td>
+      <td style="width: 50%;"><%= column_chart Atendimento.group_by_hour_of_day(:created_at, format: "%l %P").count %></td>
+    </tr>
+  <tbody>
+</table>

@@ -1,0 +1,29 @@
+<%= paginate @receitas, param_name: :receitas_page %>
+<table>
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+      <th>Valor Bruto</th>
+      <th>Despesas</th>
+      <th>Pagamento</th>
+      <th>Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @receitas.each do |r| %>
+    <tr>
+      <td><%= r.atendimento.try(:servico).try(:nome).capitalize || 'Receita'  %></td>
+      <td>R$ <%= r.valor %></td>
+      <td>R$ <%= r.despesa  %></td>
+      <td><%= Entrada.tipos_de_pagamento.key(r.tipo_pagamento).to_s.capitalize %></td>
+      <td><%=l r.updated_at, format: :short %></td>
+    </tr>
+    <% end %>
+    <tr>
+      <td><h4>TOTAL BRUTO</h4></td>
+      <td>R$ <%= @sum_receitas %></td>
+      <td><h4>TOTAL LÍQUIDO</h4></td>
+      <td>R$ <%= @sum_receitas_liq %></td>
+    </tr>
+  </tbody>
+</table>

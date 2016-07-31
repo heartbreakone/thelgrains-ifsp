@@ -1,0 +1,70 @@
+<table>
+<tr>
+<td>
+<div class='formulario'>
+  <h2>Novo Serviço</h2>
+<%= form_for [:admin, @servico] do |f| %>
+<%= render '/layouts/errors', locals: { resouce: @servicos } %>
+
+  <table class="forms">
+    <thead>
+      <tr><th>Categoria</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><%= f.select :categoria_servico_id, options_for_select(@categoria_servicos) %></td></tr>
+    </tbody>
+  </table>
+
+  <table class="forms">
+    <thead>
+      <tr><th>Nome</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><%= f.text_field :nome %></td></tr>
+    </tbody>
+  </table>
+
+  <table class="forms">
+    <thead>
+      <tr><th>Valor</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>R$ <%= f.number_field :valor %></td></tr>
+    </tbody>
+  </table>
+
+  <table class="forms">
+    <thead>
+      <tr><th>Taxa ao Funcionário</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><%= f.number_field :taxa %> %</td></tr>
+    </tbody>
+  </table>
+
+  <div class="actions">
+    <%= f.submit 'Criar Serviço' %>
+  </div>
+<% end %>
+</div>
+</td>
+<td>
+<div class='formulario'>
+  <h2>Nova Categoria</h2>
+<%= form_tag '/admin/servicos/categoria', method: 'post' do |f| %>
+<%= render '/layouts/errors', locals: { resouce: @servicos } %>
+
+  <table class="forms">
+    <tr><th>Nome</th></tr>
+    <tr><td><%= text_field_tag :nome %></td></tr>
+  </table>
+
+
+<div class="actions">
+  <%= submit_tag 'Criar Categoria' %>
+</div>
+<% end %>
+</div>
+</td>
+</tr>
+</table>

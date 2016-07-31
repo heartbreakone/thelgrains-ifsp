@@ -1,0 +1,61 @@
+<div id='cssmenu'>
+<ul>
+   <li><a href='/admin' class="brand"><span><img src="/images/logo2.png" width="125" height="29" alt="Logo" /></span></a></li>
+
+   <% if admin_user_signed_in? %>
+
+   <li class='active has-sub'><%= link_to '<span>Agendamentos</span>'.html_safe, admin_agendamentos_path  %>
+      <ul>
+         <li><%= link_to '<span>Novo</span>'.html_safe, new_admin_agendamento_path %></li>
+      </ul>
+    </li>
+    <li class='active has-sub'><%= link_to '<span>Atendimentos</span>'.html_safe, admin_atendimentos_path  %>
+      <ul>
+         <li><%= link_to '<span>Novo</span>'.html_safe, new_admin_atendimento_path %></li>
+      </ul>
+    </li>
+    <li class='active has-sub'><%= link_to '<span>Clientes</span>'.html_safe, admin_clientes_path  %>
+      <ul>
+         <li><%= link_to '<span>Novo</span>'.html_safe, new_admin_cliente_path %></li>
+      </ul>
+    </li>
+    <li class='active has-sub'><%= link_to '<span>Funcionários</span>'.html_safe, admin_funcionarios_path  %>
+      <ul>
+         <li><%= link_to '<span>Novo</span>'.html_safe, new_admin_funcionario_path %></li>
+      </ul>
+    </li>
+    <li class='active has-sub'><%= link_to '<span>Serviços</span>'.html_safe, admin_servicos_path  %>
+      <ul>
+         <li><%= link_to '<span>Novo</span>'.html_safe, new_admin_servico_path %></li>
+      </ul>
+    </li>
+    <li class='active has-sub'><%= link_to '<span>Produtos</span>'.html_safe, admin_produtos_path  %>
+      <ul>
+         <li><%= link_to '<span>Novo</span>'.html_safe, new_admin_produto_path %></li>
+      </ul>
+    </li>
+    <li class='active has-sub'><%= link_to '<span>Comentarios</span>'.html_safe, admin_web_comentarios_path  %>
+      <ul>
+         <li><%= link_to '<span>Novo</span>'.html_safe, new_admin_produto_path %></li>
+      </ul>
+    </li>
+    <li class="active">
+      <%= link_to 'Contabilidade'.html_safe, admin_contabilidade_path %>
+    </li>
+    <li class='active has-sub'>
+      <%= link_to 'Logout'.html_safe, destroy_admin_user_session_path  %>
+      <ul>
+        <li>
+          <%= link_to "<span>Usuário:<br>#{ current_admin_user.funcionario.nome_sobrenome }</span>".html_safe,
+          admin_funcionario_path(current_admin_user.funcionario) %>
+        </li>
+        <li>
+          <%= link_to "<span>Ir para Interface<br>Geral</span>".html_safe,
+          '/login' %>
+        </li>
+      </ul>
+    </li>
+    <% end %>
+
+</ul>
+</div>

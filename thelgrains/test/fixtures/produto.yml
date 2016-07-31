@@ -1,0 +1,12 @@
+cremenacional:
+  nome: creme nacional
+  valor: 30
+cremeimportado:
+  nome: creme importado
+  valor: 60
+shamponacional:
+  nome: shampo nacional
+  valor: 30
+shampoimportado:
+  nome: shampo importado
+  valor: 60

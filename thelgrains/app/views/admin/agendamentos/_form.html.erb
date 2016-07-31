@@ -1,0 +1,61 @@
+<%= form_for [:admin, @agendamento] do |f| %>
+<%= render '/layouts/errors', locals: { resouce: @servicos } %>
+
+  <table class="forms">
+    <thead>
+      <tr><th>Título</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><%= f.text_field :title %></td></tr>
+    </tbody>
+  </table>
+
+  <table class="forms">
+    <thead>
+      <tr><th>Descrição</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><%= f.text_area :description, class: 'p' %></td></tr>
+    </tbody>
+  </table>
+
+  <table class="forms">
+    <thead>
+      <tr>
+        <th>Começa em</th>
+        <th>Duração</th>
+        <th>Dia Todo?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <style> #agendamento_start_time_3i,
+        #agendamento_start_time_2i,
+        #agendamento_start_time_1i,
+        #agendamento_start_time_4i,
+        #agendamento_start_time_5i { width: 80px; } </style>
+        <td><%= f.datetime_select :start_time, id: 'data' %></td>
+        <td><%= f.number_field :end_time, class: 'p' %> Hrs</td>
+        <td><%= f.check_box :all_day, class: 'p' %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="forms">
+    <thead>
+      <tr>
+        <th>Funcionário</th>
+        <th>Cliente</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= f.collection_select :user_id, User.all, :id, :nome_sobrenome %></td>
+        <td><%= f.collection_select :cliente_id, Cliente.all, :id, :nome %></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Admin Atendimentos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Funcionário</th>
+      <th>Serviço</th>
+      <th>Data</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @atendimentos.each do |atendimento| %>
+      <tr>
+        <td><%= atendimento.user.nome %></td>
+        <td><%= atendimento.servico.nome %></td>
+        <td><%=l atendimento.updated_at, format: :short %></td>
+        <td><%= link_to 'Ver', admin_atendimento_path(atendimento) %></td>
+        <td><%= link_to 'Editar', edit_admin_atendimento_path(atendimento) %></td>
+        <td><%= link_to 'Remover', admin_atendimento_path(atendimento), method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Atendimento', new_admin_atendimento_path %>

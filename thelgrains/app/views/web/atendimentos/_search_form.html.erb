@@ -1,0 +1,13 @@
+<div id="search" title="Filtro">
+  <%= search_form_for @q, url: atendimentos_url do |f| %>
+    <label>Funcionário: </label>
+    <%= f.select :user_id_eq,
+    options_from_collection_for_select(User.all, 'id', 'nome_ultimo', @q.user_id_eq),
+    include_blank: 'Todos',
+    value: '',
+    class: 'p' %>
+    <label>Cliente: </label><%= f.search_field :cliente_nome_cont, class: 'p' %><br>
+    <label>Data: </label><%= f.search_field :created_at_cont, class: 'p' %><br>
+    <%= f.submit 'Filtrar', class: '' %>
+  <% end %>
+</div>

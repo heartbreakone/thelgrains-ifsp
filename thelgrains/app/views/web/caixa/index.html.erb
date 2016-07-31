@@ -1,0 +1,75 @@
+<% content_for :script do %>
+  <%= javascript_include_tag 'web/caixa/index' %>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th><%= sort_link @q, :created_at, 'Data/Hora' %></th>
+      <th><%= sort_link @q, :user, 'Funcionário' %></th>
+      <th><%= sort_link @q, :servico, 'Serviço' %></th>
+      <th><%= sort_link @q, :cliente, 'Cliente' %></th>
+      <th>Valor</th>
+      <th>Estado</th>
+      <th colspan="1"><th>
+    </tr>
+  </thead>
+  <tbody id="selectable">
+    <% @atendimentos.each do |a| %>
+      <tr meta="<%= a.id %>">
+        <td><%=l a.created_at, format: :short %></td>
+        <td><%= a.user.nome %></td>
+        <td><%= a.servico.nome %></td>
+        <td><%= a.cliente.try(:nome) || 'Não cadastrado' %></td>
+        <td>R$ <%= a.valor_a_pagar %></td>
+        <td><%= a.state.humanize %></td>
+        <td><button class="abrir">Abrir</button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<button id="abrir-search">Filtro</button>
+
+<div id="search" title="Filtro">
+  <%= search_form_for @q, url: caixa_index_url do |f| %>
+    <label>Funcionário: </label> <%= f.select :user_id_eq,
+    options_from_collection_for_select(User.all, 'id', 'nome_ultimo', @q.user_id_eq),
+    include_blank: true,
+    value: 'Todos',
+     class: 'p' %>
+    <label>Cliente: </label><%= f.search_field :cliente_nome_cont, class: 'p' %><br>
+    <%= f.submit 'Filtrar', class: '' %>
+  <% end %>
+</div>
+
+<div id="dialog" title="Atendimento">
+  <%= form_tag('/caixa', method: 'put', id: 'dialog-form') do %>
+    <input type="hidden" id="atendimento-id"></input>
+    <input type="hidden" id="pago" name="atendimento[pago]"></input>
+    <input type="hidden" id="valor-pagar"></input>
+    <div id="funcionario"></div>
+    <br>
+    <div id="cliente"></div>
+    <br>
+    Valores:
+    <table>
+      <tr id="servicos"></tr>
+      <tr><td>Gasto Adicional</td><td id="gasto-add"></td></tr>
+      <tr><td>Total</td><td>R$ <output id="total"></output></td></tr>
+    </table>
+    <br>
+    Tipo de Pagamento
+    <% pags = Entrada.tipos_de_pagamento.to_a.map { |k| [k[0].to_s.capitalize!, k[1]]}%>
+    <%= select_tag :tipo_pagamento,
+    options_for_select(pags),
+    name: "atendimento[tipo_pagamento]",
+    id: 'tipo-pagamento' %>
+
+    <label>Valor pago</label>
+    R$ <input id="valor-pago" type="number" min="0.0" value="0.0"></input>
+
+    <label>Troco</label>
+    R$ <input id="troco" type="text" disabled="true"></input>
+  <% end %>
+</div>
+<script>$('#dialog, #search').hide();</script>

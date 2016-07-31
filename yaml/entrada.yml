@@ -1,0 +1,24 @@
+entrada1:
+ id:100
+ atendimentos_id:100
+ descricao:pagamento da divida
+ tipo_pagamento:dinheiro
+ valor:1000
+entrada2:
+ id:101
+ atendimentos_id:101
+ descricao:serviço
+ tipo_pagamento:debito
+ valor:500
+entrada3:
+ id:102
+ atendimentos_id:102
+ descricao:servico
+ tipo_pagamento:credito
+ valor:200
+entrada4:
+ id:103
+ atendimentos_id:103
+ descricao:servico
+ tipo_pagamento:dinheiro
+ valor:300

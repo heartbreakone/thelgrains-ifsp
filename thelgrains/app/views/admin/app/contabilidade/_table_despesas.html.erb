@@ -1,0 +1,22 @@
+<%= paginate @despesas, param_name: :despesas_page %>
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Valor</th>
+      <th>Data<th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @despesas.each do |d| %>
+    <tr>
+      <td><%= d.nome %></td>
+      <td>R$ <%= d.valor %></td>
+      <td><%=l d.updated_at, format: :short %></td>
+    </tr>
+    <% end %>
+    <tr><td><h4>TOTAL</h4></td>
+        <td>R$ <%= @sum_despesas %></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,32 @@
+<h1>Contabilidade</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Receitas</th>
+      <th>Despesas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <%= render 'admin/app/contabilidade/table_receitas' %>
+        <button>Inserir Receita</button>
+      </td>
+
+      <td>
+        <%= render 'admin/app/contabilidade/table_despesas' %>
+        <button>Inserir Despesa</button>
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+<table>
+<tr><th>Total em caixa de hoje</th><th>Receita por Funcionário</th></tr>
+<tr><td>R$: <%= @total_em_caixa %></td>
+  <td><%= select_tag :user_id,
+  options_from_collection_for_select(User.all, 'id', 'nome_ultimo'),
+  include_blank: 'Selecione' %><%= button_to 'Selecionar', ''%></td>
+  <td></td>
+</tr>
+</table>

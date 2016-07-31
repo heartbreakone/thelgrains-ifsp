@@ -1,0 +1,49 @@
+<%= form_for(@agendamento) do |f| %>
+  <% if @agendamento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@agendamento.errors.count, "error") %> prohibited this agendamento from being saved:</h2>
+
+      <ul>
+      <% @agendamento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id, 'Funcionário' %><br>
+    <%= f.collection_select :user_id, User.all, :id, :nome_ultimo %>
+  </div>
+  <div class="field">
+    <%= label_tag :avulso, 'Avulso?' %>
+    <%= check_box_tag :avulso %>
+  </div>
+  <div class="field">
+    <%= f.label :cliente_id %><br>
+    <%= f.collection_select :cliente_id, Cliente.all, :id, :nome_ultimo %>
+  </div>
+  <div class="field">
+    <%= f.label :title, 'Título' %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description, 'Descrição' %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :all_day, 'Dia todo?' %><br>
+    <%= f.check_box :all_day %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time, 'Início' %><br>
+    <%= f.datetime_select :start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time, 'Término' %><br>
+    <%= f.datetime_select :end_time %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'criar' %>
+  </div>
+<% end %>

@@ -1,0 +1,16 @@
+saida1:
+  nome: pagamento pedreiro
+  descricao: pagamento do reparo no encanamento
+  valor: 100
+saida3:
+  nome: fornecedor
+  descricao: pagamento do fornecedor
+  valor: 250
+saida4:
+  nome: limpeza
+  descricao: gasto com limpeza
+  valor: 50
+saida5:
+  nome: fornecedor
+  descricao: pagamento do fornecedor
+  valor: 500

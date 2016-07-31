@@ -1,0 +1,27 @@
+cliente1:
+  nome: Manuel Antônio de Almeida
+  telefone: 48748569
+  celular: 987545621
+  email: email@email.com
+  cpf: 61364103389
+
+cliente2:
+  nome: José de Alencar
+  telefone: 42348579
+  celular: 967395621
+  email: email@email.com
+  cpf: 19818372131
+
+cliente3:
+  nome: Machado de Assis
+  telefone: 48748569
+  celular: 987545621
+  email: email@email.com
+  cpf: 54769707207
+
+cliente4:
+ nome: Almeida Garret
+ telefone: 48748569
+ celular: 987545621
+ email: email@email.com
+ cpf: 28752843203

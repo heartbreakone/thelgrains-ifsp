@@ -1,0 +1,23 @@
+user1:
+  cpf: 22718132710
+  encrypted_password: <%= User.new(:password => 'senha123').encrypted_password %>
+  admin: true
+  active: true
+
+user2:
+  cpf: 98138362103
+  encrypted_password: <%= User.new(:password => 'senha123').encrypted_password %>
+  admin: false
+  active: true
+
+user3:
+  cpf: 60655423265
+  encrypted_password: <%= User.new(:password => 'senha123').encrypted_password %>
+  admin: false
+  active: true
+
+user4:
+  cpf: 90666165807
+  encrypted_password: <%= User.new(:password => 'senha123').encrypted_password %>
+  admin: false
+  active: true

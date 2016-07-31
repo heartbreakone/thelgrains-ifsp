@@ -1,0 +1,20 @@
+corte:
+  categoria_servico: cortes
+  nome: Corte de cabelo
+  valor: 10
+  taxa: 10
+tintura:
+  categoria_servico: quimica
+  nome: tintura
+  valor: 30
+  taxa: 20
+relaxamento:
+  categoria_servico: quimica
+  nome: relaxamento
+  valor: 20
+  taxa: 30
+escova:
+  categoria_servico: esteticista
+  nome: escova
+  valor: 15
+  taxa: 50

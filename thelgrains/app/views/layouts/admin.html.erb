@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Thelgrains</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'application' %>
+  <%= render 'layouts/style_n_stuff' %>
+  <%= javascript_include_tag 'application' %>
+  <%= render 'layouts/script_n_stuff' %>
+  <%= render 'layouts/admin/header' %>
+</head>
+<body id="backss">
+  <img src="/images/RoxoBack.png" class="bg">
+  <div class="container">
+  </br>
+    <section>
+      <%= yield %>
+    </section>
+  </div>
+  <%= render 'layouts/admin/footer' %>
+  <%= render 'layouts/popup' if flash[:notice] || flash[:alert] %>
+  <%= yield :script %>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<script>
+  var Chartkick = {"language": "pt-BR"};
+</script>
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<h1>Dashboard</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Atendimentos</th>
+      <th>Atendimentos de Hoje</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="width: 50%;">
+        <%= line_chart User.all.map{ |goal|
+    {name: goal.nome, data: goal.atendimentos.group_by_week(:created_at).count}
+      } %>
+      </td>
+      <td style="width: 50%;">
+        <%= column_chart Atendimento.group_by_hour_of_day(:created_at, format: "%l %P").count %>
+      </td>
+    </tr>
+  <tbody>
+</table>

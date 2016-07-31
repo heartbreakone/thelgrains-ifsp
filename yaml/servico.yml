@@ -1,0 +1,13 @@
+corte:
+ id:100
+ nome:Corte de cabelo
+tintura:
+ id:101
+ nome:tintura
+relaxamento:
+ id:102
+ nome:relaxamento
+escova:
+ id:103
+ nome:escova
+ 

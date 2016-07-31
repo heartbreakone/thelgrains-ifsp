@@ -1,0 +1,30 @@
+
+<h1>Serviços</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Valor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @servicos.each do |servico| %>
+      <tr cat='<%= servico.categoria_servico.id %>'>
+        <td><%= servico.nome %></td>
+        <td><%= servico.valor %></td>
+        <td><%= link_to 'Ver', admin_servico_path(servico) %></td>
+        <td><%= link_to 'Editar', edit_admin_servico_path(servico) %></td>
+        <td><%= link_to 'Excluir', admin_servico_path(servico), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<label for="categoria">Selecione a categoria</label>
+<%= select_tag 'categoria', options_for_select(@categoria_servicos), id: 'categoria' %>
+<br>
+
+
+<%= link_to 'Novo Serviço', new_admin_servico_path %>
+<%= javascript_include_tag 'admin/servicos/index' %>

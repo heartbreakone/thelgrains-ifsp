@@ -1,0 +1,29 @@
+<h1>Lista de Comentários</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Comentário</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @web_comentarios.each do |comentario| %>
+      <tr>
+        <td><%= comentario.nome %></td>
+        <td><%= comentario.email %></td>
+        <td><%= comentario.comentario%></td>
+        <td><%= link_to 'Ver', admin_web_comentario_path(comentario) %></td>
+        <td><%= link_to 'Editar', edit_admin_web_comentario_path(comentario) %></td>
+        <td><%= link_to 'Remover', admin_web_comentario_path(comentario), method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Comentário', new_admin_web_comentario_path %>

@@ -1,0 +1,18 @@
+<div class="container">
+  			<!-- Codrops top bar -->
+    <header>
+        <div class="support-note"><!-- let's check browser support with modernizr -->
+  		    <span class="no-cssanimations">Não é suportado no seu navegador, migre para um mais moderno;</span>
+  		    <span class="no-csstransforms">Não é suportado no seu navegador, migre para um mais moderno;</span>
+  		    <span class="note-ie">Não é suportado no seu navegador, migre para um mais moderno;</span>
+        </div>
+  	</header>
+  	<input type="checkbox" class="fire-check"  checked/>
+  	<section>
+  		<div class="tn-box tn-box-color-1">
+  			<%= "<p>#{flash[:notice]}</p>".html_safe if flash[:notice] %>
+        <%= "<p>Alerta: #{flash[:alert]}</p>".html_safe if flash[:alert] %>
+  			<!-- <div class="tn-progress"></div> -->
+  		</div>
+  	</section>
+</div>

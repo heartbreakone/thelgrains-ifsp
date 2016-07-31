@@ -1,0 +1,30 @@
+<div class="container">
+<img src="/images/Slider03.png" alt="eva" longdesc="/images/Slider03.png" width="21%">
+
+<h2>Acesse aqui sua conta</h2>
+<%= form_for resource, as: resource_name, url: session_path(resource_name) do |f| %>
+  <div class="field">
+    <%= f.label :cpf, '<h4>Por favor, digite seu CPF:</h4>'.html_safe %><br />
+    <%= f.text_field(:cpf, onblur: 'validarCPF(this.value);', onkeypress: 'mascara(this, cpf_mask);', maxlength: '14') %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, '<h4>Senha:</h4>'.html_safe %><br />
+    <%= f.password_field :password, autocomplete: "off", maxlength: '20' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Login", class: 'message-btn', id: 'send-mail' %>
+  </div>
+<% end %>
+</div>
+<br><br><br><br>
+<!-- <center>
+  <div class="sticky-container2" align="center">
+    <ul class="sticky2">
+    <a style="color: #FFF" href="/login"><li>RETORNAR AO LOGIN</br>DO FUNCIONÁRIO</li></a>
+    </ul>
+  </div>
+  <div class="sistema1">
+  </div>
+</center> -->

@@ -1,0 +1,41 @@
+<% content_for :script do %>
+  <%= javascript_include_tag 'web/atendimentos/index' %>
+  <%= javascript_include_tag 'web/atendimentos/edit_form' %>
+  <%= javascript_include_tag 'web/atendimentos/finish_form' %>
+  <%= javascript_include_tag 'web/atendimentos/create_form' %>
+  <%= javascript_include_tag 'web/atendimentos/search_form' %>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th><%= sort_link @q, :created_at, 'Data/Hora' %></th>
+      <th><%= sort_link @q, :user, 'Funcionário' %></th>
+      <th><%= sort_link @q, :servico, 'Serviço' %></th>
+      <th><%= sort_link @q, :cliente, 'Cliente' %></th>
+      <th>Estado</th>
+      <th colspan="2"><th>
+    </tr>
+  </thead>
+  <tbody id="selectable">
+    <% @atendimentos.each do |a| %>
+      <tr meta="<%= a.id %>">
+        <td><%=l a.created_at, format: :short %></td>
+        <td><%= a.user.nome %></td>
+        <td><%= a.servico.nome %></td>
+        <td><%= a.cliente.try(:nome) || 'Não cadastrado' %></td>
+        <td><%= a.state.humanize %></td>
+        <td><button class="abrir">Ver/Editar</button></td>
+        <td><button class="finalizar">Finalizar</button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<button id="abrir-search">Filtro</button>
+<button id="novo">Novo</button>
+
+<%= render 'search_form' %>
+<%= render 'edit_form' %>
+<%= render 'create_form' %>
+
+<script>$('.dialog, #search').hide();</script>

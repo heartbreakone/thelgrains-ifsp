@@ -1,0 +1,26 @@
+<br>
+<table id="drag-container">
+<tr>
+  <td><div id='external-events'>
+    <%= text_field_tag :new_title, nil, placeholder: 'Insira um título' %><br>
+    <%= select_tag :user_id, options_from_collection_for_select(User.all, :id, :nome), include_blank: 'Selecione o Funcionário' %>
+    <%= select_tag :cliente_id, options_from_collection_for_select(Cliente.all, :id, :nome), include_blank: 'Selecione o Cliente' %>
+    <div id='new-event' class="fc-event">Arraste-me para<br>agendar</div>
+    <h5 style="color: black;">OU</h5>
+    <%= button_to 'Novo Agendamento', new_agendamento_path, method: 'get' %>
+  </div></td>
+<td>
+<div id="wrap">
+  <div id='calendar'></div>
+</div>
+</td>
+</tr>
+</table>
+
+
+
+
+<% path  = 'web/agendamentos/' %>
+<%= stylesheet_link_tag path + 'fullcalendar.print', media: 'print' %>
+<%= stylesheet_link_tag path + 'stylecalendar' %>
+<%= javascript_include_tag path + 'controladorCalendar', path + 'pt' %>

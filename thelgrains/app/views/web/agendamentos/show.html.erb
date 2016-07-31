@@ -1,0 +1,39 @@
+<p>
+  <strong>Funcionário:</strong>
+  <%= @agendamento.user.nome %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @agendamento.cliente.try(:nome) || 'Não Cadastrado' %>
+</p>
+
+<p>
+  <strong>Título:</strong>
+  <%= @agendamento.title %>
+</p>
+<% if @agendamento.description %>
+<p>
+  <strong>Descrição:</strong>
+  <%= @agendamento.description %>
+</p>
+<% end %>
+<% if @agendamento.all_day? %>
+  <p>
+  <strong>All day:</strong>
+  <%= @agendamento.all_day %>
+  </p>
+<% else %>
+
+<p>
+  <strong>De:</strong>
+  <%= @agendamento.start_time %>
+</p>
+  <p>
+    <strong>Até:</strong>
+    <%= @agendamento.end_time %>
+  </p>
+<% end %>
+<%= link_to 'Deletar', agendamento_path(@agendamento), method: 'DELETE' %> |
+<%= link_to 'Editar', edit_agendamento_path(@agendamento) %> |
+<%= link_to 'Voltar', agendamentos_path %>

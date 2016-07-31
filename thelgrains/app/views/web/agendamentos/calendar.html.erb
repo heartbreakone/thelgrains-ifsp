@@ -1,0 +1,40 @@
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Agendamentos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Cliente</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>All day</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @agendamentos.each do |agendamento| %>
+      <tr>
+        <td><%= agendamento.user %></td>
+        <td><%= agendamento.cliente %></td>
+        <td><%= agendamento.title %></td>
+        <td><%= agendamento.description %></td>
+        <td><%= agendamento.start_time %></td>
+        <td><%= agendamento.end_time %></td>
+        <td><%= agendamento.all_day %></td>
+        <td><%= link_to 'Show', agendamento %></td>
+        <td><%= link_to 'Edit', edit_agendamento_path(agendamento) %></td>
+        <td><%= link_to 'Destroy', agendamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Agendamento', new_agendamento_path %>

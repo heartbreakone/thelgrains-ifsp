@@ -1,0 +1,32 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="container">
+            <a href="/" class="brand">
+                <img src="/images/logo.png" width="140" height="60" alt="Logo" /> <center>ÁREA DE SERVIÇO</center>
+                <!-- Logo EVA HAIR FASHION -->
+            </a>
+            <!-- Barra de navegação -->
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-menu"></i>
+            </button>
+            <!-- Menu principal -->
+            <div class="nav-collapse collapse pull-right">
+                <ul class="nav" id="top-navigation">
+                    <% if logged_in? %>
+                      <li class="active"><%= link_to 'Home', home_path %></li>
+                      <li class=""><%= link_to 'Caixa', caixa_index_path %></li>
+                      <li class=""><%= link_to 'Agendamentos', agendamentos_path %></li>
+                      <li class=""><%= link_to 'Atendimentos', atendimentos_path %></li>
+                    <% else %>
+                      <li class=""><%= link_to 'Voltar ao Site', '/index.html?renew=me' %></li>
+                    <% end %>
+                    <li><%= link_to 'Administração', new_admin_user_session_path %></li>
+                    <% if logged_in? %>
+                      <li><%= link_to 'Logout', logout_path %></li>
+                    <% end %>
+                </ul>
+            </div>
+            <!-- Fim do Menu principal -->
+        </div>
+    </div>
+</div>

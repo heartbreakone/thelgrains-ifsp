@@ -1,0 +1,21 @@
+saida1:
+ id:100
+ nome:pagamento pedreiro
+ descricao:pagamento do reparo no encanamento
+ valor:100
+saida3:
+ id:102
+ nome:fornecedor
+ descricao:pagamento do fornecedor
+ valor:250
+saida4:
+ id:103
+ nome:limpeza
+ descricao:gasto com limpeza
+ valor:50
+saida5:
+ id:104
+ nome:fornecedor
+ descricao:pagamento do fornecedor
+ valor:500
+ 
